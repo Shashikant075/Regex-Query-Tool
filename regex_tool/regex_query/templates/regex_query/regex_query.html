@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Regex Query Tool</title>
+    <style>
+        body {
+            background-color: #f0f0f0; /* Light gray background color */
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            background-color: #f9f9f9;
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Regex Query Tool</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Submit</button>
+        </form>
+        
+        {% if matches is not None %}
+            <h2>Matches:</h2>
+            {% if matches %}
+                <ul>
+                    {% for match in matches %}
+                        <li>{{ match }}</li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>No matches found.</p>
+            {% endif %}
+        {% endif %}
+
+        {% if db_matches is not None %}
+            <h2>Database Matches:</h2>
+            {% if db_matches %}
+                <ul>
+                    {% for entry, entry_matches in db_matches %}
+                        <li>
+                            <strong>In entry:</strong> {{ entry.text|truncatewords:10 }}<br>
+                            <strong>Matches:</strong>
+                            <ul>
+                                {% for match in entry_matches %}
+                                    <li>{{ match }}</li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>No matches found in the database.</p>
+            {% endif %}
+        {% endif %}
+    </div>
+</body>
+</html>
