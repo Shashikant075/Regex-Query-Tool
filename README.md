@@ -9,6 +9,15 @@ The Regex Query Tool is designed to facilitate efficient searching and filtering
 - **Search in Database**: Execute regex searches directly within a database, enabling efficient querying and retrieval of records that match specific patterns.
 
 - **Regex Pattern**: Define and utilize custom regular expressions to tailor searches according to specific needs, providing powerful and precise search functionality.
+## Using Regex Query Tool
+- **Choose Your Search Source**: Decide whether to search within provided text or connect to a database.
+- **Enter Text or Database Connection Details**: For text search, paste the text directly into the tool. For database searches, follow the provided instructions to configure the connection.
+- **Define Your RegEx Pattern**: Construct your RegEx pattern using the supported syntax. (Documentation for RegEx syntax will be provided)
+- **Run the Search**: Initiate the search process. The tool will efficiently scan the text or database and display any matches based on your RegEx pattern.
+## Benefits
+- **Powerful Search Capabilities**: RegEx offers unmatched flexibility and precision when searching for complex patterns in text or databases.
+- **Improved Efficiency**: Quickly locate the information you need, eliminating the need for manual sifting through large datasets.
+- **Enhanced Data Analysis**: Extract valuable insights from text data by identifying specific patterns and trends.
 
 ## Screenshots
 
